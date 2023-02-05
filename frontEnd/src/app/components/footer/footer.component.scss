@@ -1,0 +1,9 @@
+@import "../../../assets/style/variables";
+:host {
+    background-color: $color-primary-dark;
+    width: 100%;
+    display: flex;
+    justify-content: center;    
+    align-items: flex-end;
+    color: $font-color-primary;
+}

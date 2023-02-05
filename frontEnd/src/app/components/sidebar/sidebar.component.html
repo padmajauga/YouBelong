@@ -1,0 +1,27 @@
+<div class="navbar" [ngClass]="{'active': open}">
+    <div class="icons">
+        <div class="iconBox" routerLink="landing" routerLinkActive="activeLink" [routerLinkActiveOptions]="{exact: true}">        
+            <mat-icon>home</mat-icon> 
+        </div> 
+        <div class="iconBox" routerLink="jobs" routerLinkActive="activeLink" [routerLinkActiveOptions]="{exact: true}">        
+            <mat-icon>library_books</mat-icon> 
+        </div>   
+        <div class="iconBox" routerLink="pals"  routerLinkActive="activeLink" [routerLinkActiveOptions]="{exact: true}">        
+            <mat-icon>people</mat-icon>
+        </div>
+        <div class="iconBox" routerLink="donate" routerLinkActive="activeLink" [routerLinkActiveOptions]="{exact: true}">        
+            <mat-icon>account_balance_wallet</mat-icon>
+        </div>
+        <div class="iconBox" routerLink="event" routerLinkActive="activeLink" [routerLinkActiveOptions]="{exact: true}">        
+            <mat-icon>event</mat-icon>
+        </div>
+    </div>
+
+    <div class="list" *ngIf="open">
+        <div routerLink="landing">Home</div>
+        <div routerLink="jobs">Jobs</div>
+        <div routerLink="pals">Find A Pal</div>
+        <div routerLink="donate">Donate</div>
+        <div routerLink="event" >Create Event</div>
+    </div>
+</div>

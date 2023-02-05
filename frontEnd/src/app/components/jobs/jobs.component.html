@@ -1,0 +1,88 @@
+<mat-tab-group>
+  <mat-tab label="Available Jobs">
+    <div class="available">
+      <div class="card" *ngFor="let job of jobItems, let i = index">
+        <div class="header">
+          <h2>{{job.title}}</h2>
+        </div>
+        <div class="row">
+          <div class="avatar-container">
+              <img class="img" src="../../../assets/images/logo.jpg" />
+          </div>
+          <div class="details-container">
+            <div class="content">
+              <h3>{{job.skillDescription}}</h3>
+            </div>
+            <h4>Request by: {{job.sname}}</h4>
+            <h3>${{job.pay}}</h3>
+            <button mat-raised-button color="primary" (click)="applyForJob(i)">Apply</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-tab>
+  <mat-tab label="My Requests">
+    <div class="available">
+      <div class="card" *ngFor="let job of myJobItems, let i = index">
+        <div class="header">
+          <h2>{{job.title}}</h2>
+        </div>
+        <div class="row">
+          <div class="avatar-container">
+              <img class="img" src="../../../assets/images/logo.jpg" />
+          </div>
+          <div class="details-container">
+            <div class="content">
+              <h3>{{job.skillDescription}}</h3>
+            </div>
+            <h4>Request by: {{job.sname}}</h4>
+            <h3>${{job.pay}}</h3>
+            <h3>Status:  {{job.status}}</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-tab>
+  <mat-tab label="Raise Request">
+    <form [formGroup]="requestForm">
+                <mat-form-field appearance="outline">
+              <mat-label> Name</mat-label>
+              <input matInput type="text" formControlName="sname" placeholder="Enter name">
+              <mat-error *ngIf="!requestForm.get('sname').valid"> This is a required field</mat-error>
+          </mat-form-field>
+      
+                 
+      <mat-form-field appearance="outline">
+          <mat-label> Title</mat-label>
+          <input matInput type="text" formControlName="title" placeholder="title">
+          <mat-error *ngIf="!requestForm.get('title').valid"> This is a required field</mat-error>
+      </mat-form-field>
+      
+                 
+        <mat-form-field appearance="outline">
+            <mat-label> Pay </mat-label>
+            <input matInput type="text" formControlName="pay" placeholder="pay">
+            <mat-error *ngIf="!requestForm.get('pay').valid"> This is a required field</mat-error>
+        </mat-form-field>
+        
+              <mat-form-field appearance="fill">
+          <mat-label>Description</mat-label>
+          <textarea matInput formControlName="skillDescription" placeholder="description"></textarea>
+          <mat-error *ngIf="!requestForm.get('skillDescription').valid"> This is a required field</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Choose an option</mat-label>
+          <mat-select formControlName="status">
+            <mat-option *ngFor="let option of statusOptions" [value]="option">{{option}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      
+      <div>
+          <button (click)="request()" [disabled]="!requestForm.valid" mat-raised-button color="primary" class="fullButton">Post Request</button>
+      </div>
+  </form>  
+  </mat-tab>
+</mat-tab-group>
+
+

@@ -1,0 +1,7 @@
+<div class="card" *ngFor="let pal of palsItems; let i = index;">
+    <img src="../../../assets/images/community_main.jpg" alt="John" style="width:100%">
+    <h1>{{pal.pname}}</h1>
+    <p>{{pal.activity}}</p>
+    <p> Looking for people: {{pal.palage}}</p>
+    <p><button mat-raised-button color="primary" (click)="sendRequest(i)">Contact</button></p>
+</div>

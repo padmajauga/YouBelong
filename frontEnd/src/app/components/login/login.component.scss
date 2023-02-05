@@ -1,0 +1,17 @@
+.signUp {
+    padding: 5%;
+    top: 18%;
+    left: 39%;
+    position: fixed;
+    height: 45vh;
+    background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3));
+    border-radius: 2rem;
+    z-index: 3;
+    backdrop-filter: blur(2rem);
+    display: grid;
+    align-content: space-around;
+
+    .fullButton {
+        width: 100%;
+    }
+}

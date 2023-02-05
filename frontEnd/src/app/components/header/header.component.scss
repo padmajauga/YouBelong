@@ -1,0 +1,28 @@
+@import "../../../assets/style/variables.scss";
+.topNavigation{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 15%;
+    color: $font-color-primary;
+    padding: 1rem;
+    font-weight: 200;
+    background-color: $color-primary;
+
+    .general {
+        display: flex;
+    }
+
+    .userDetails {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        .userImage {
+            height: 2rem;
+            width: 2rem;
+            border-radius: 50%;
+            border: 2px white solid;
+            margin-left: 10%;
+        }
+    }
+}
+

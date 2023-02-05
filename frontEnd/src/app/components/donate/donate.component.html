@@ -1,0 +1,79 @@
+<mat-tab-group>
+    <mat-tab label="Available Items">
+      <div class="available">
+        <div class="card" *ngFor="let donationitem of donationItems; let i = index">
+          <div class="header">
+            <h2>{{donationitem.title}}</h2>
+          </div>
+          <div class="row">
+            <div class="avatar-container">
+                <img class="img" src="../../../assets/images/logo.jpg" />
+            </div>
+            <div class="details-container">
+              <div class="content">
+                <h3>{{donationitem.description}}</h3>
+              </div>
+              <button mat-raised-button color="primary" (click)="contact(i)">Contact {{donationitem.dname}}</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-tab>
+    <mat-tab label="My Requests">
+      <div class="available">
+        <div class="card" *ngFor="let donationitem of myDonationItems; let i = index">
+          <div class="header">
+            <h2>{{donationitem.title}}</h2>
+          </div>
+          <div class="row">
+            <div class="avatar-container">
+                <img class="img" src="../../../assets/images/logo.jpg" />
+            </div>
+            <div class="details-container">
+              <div class="content">
+                <h3>{{donationitem.description}}</h3>
+              </div>
+              <h3>Status:  {{donationitem.status}}</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-tab>
+    <mat-tab label="Raise Request">
+      <form [formGroup]="requestForm">
+                  <mat-form-field appearance="outline">
+                <mat-label> Name</mat-label>
+                <input matInput type="text" formControlName="dname" placeholder="Enter name">
+                <mat-error *ngIf="!requestForm.get('dname').valid"> This is a required field</mat-error>
+            </mat-form-field>
+        
+                   
+        <mat-form-field appearance="outline">
+            <mat-label> Title</mat-label>
+            <input matInput type="text" formControlName="title" placeholder="title">
+            <mat-error *ngIf="!requestForm.get('title').valid"> This is a required field</mat-error>
+        </mat-form-field>
+        
+          
+                <mat-form-field appearance="fill">
+            <mat-label>Description</mat-label>
+            <textarea matInput formControlName="description" placeholder="description"></textarea>
+            <mat-error *ngIf="!requestForm.get('description').valid"> This is a required field</mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Choose an option</mat-label>
+            <mat-select formControlName="status">
+              <mat-option *ngFor="let option of statusOptions" [value]="option">{{option}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        
+        <div>
+            <button (click)="postDonation()" [disabled]="!requestForm.valid" mat-raised-button color="primary" class="fullButton">Raise Request</button>
+        </div>
+    </form>  
+    </mat-tab>
+  </mat-tab-group>
+  
+  
+  

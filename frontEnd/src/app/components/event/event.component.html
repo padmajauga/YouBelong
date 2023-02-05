@@ -1,0 +1,43 @@
+<div class="newEvent">
+    <form [formGroup]="requestForm">
+        <mat-form-field appearance="outline">
+      <mat-label>Event Name</mat-label>
+      <input matInput type="text" formControlName="ename" placeholder="Enter Event name">
+      <mat-error *ngIf="!requestForm.get('ename').valid"> This is a required field</mat-error>
+  </mat-form-field>
+
+         
+<mat-form-field appearance="outline">
+  <mat-label>Choose a date</mat-label>
+  <input matInput [matDatepicker]="picker" formControlName="edate">
+  <mat-hint>MM/DD/YYYY</mat-hint>
+  <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
+
+
+      <mat-form-field appearance="fill">
+  <mat-label>Event Description</mat-label>
+  <textarea matInput formControlName="edescription" placeholder="Event description"></textarea>
+  <mat-error *ngIf="!requestForm.get('edescription').valid"> This is a required field</mat-error>
+</mat-form-field>
+
+<div>
+  <button (click)="request()" [disabled]="!requestForm.valid" mat-raised-button color="primary" class="fullButton">Post Event</button>
+</div>
+</form>
+</div>
+
+<div class="eventList">
+    <div class="card" *ngFor="let event of eventItems; let i = index">
+        <div class="date">
+            <h2>
+                {{event.edate.split(" ")[0]}} <br><span>{{event.edate.split(" ")[1]}}</span>
+            </h2>
+        </div>
+        <div class="details">
+            <p> {{event.edescription}}</p>
+            <button mat-raised-button color="primary" class="joinButton" (click)="joinEvent(i)">Join {{event.host}}</button>
+        </div>
+    </div>
+</div>

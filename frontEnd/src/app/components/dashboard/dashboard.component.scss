@@ -1,0 +1,17 @@
+:host {
+    display: grid;
+    grid-template-rows: 95% 5%;    
+    grid-row-gap: 0.6%;
+}
+
+.dasharea {
+    display: grid;    
+    grid-template-columns: 13% 86%;
+    grid-column-gap: 1%;
+}
+
+.main {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}

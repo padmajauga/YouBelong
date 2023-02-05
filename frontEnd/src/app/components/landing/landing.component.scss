@@ -1,0 +1,43 @@
+@import "../../../assets/style/variables";
+
+:host {
+  height: 100%;
+  background-color:#fff;
+  display:grid;
+  grid-template-columns: 40% 40%;
+  grid-template-rows: 40% 40%;  
+  grid-row-gap: 5rem;
+  grid-column-gap: 5rem;
+  padding: 5%;
+  justify-content: center;
+  align-content: center;
+}
+
+mat-card {
+    box-shadow: 0 8px 32px 0 rgb(13 16 68 / 37%);
+}
+mat-card-actions {
+    display: flex;
+}
+
+mat-card-content {
+    padding: 5%;
+}
+
+mat-card-footer {
+    display: grid;
+    grid-template-columns: 30% 30%;
+    grid-column-gap: 5%;
+    padding: 1%;
+    justify-content: end;
+    align-content: center;
+    margin-top: 2%;
+}
+
+mat-card-header {
+    background-color: $color-tertiary-dark;
+    color: $font-color-primary;
+    padding: 0px !important;
+    justify-content: center;
+    align-items: center;
+}

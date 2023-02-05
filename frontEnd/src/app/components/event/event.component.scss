@@ -1,0 +1,54 @@
+:host {
+    display: grid;
+    height: 100%;
+    grid-template-columns: 50% 50%;
+    grid-template-areas: 
+        "newEvent eventList"
+}
+
+.newEvent {
+    grid-area: newEvent;
+}
+
+.eventList {
+    grid-area: eventList;
+    display: grid;
+    grid-template-rows: auto;
+    grid-row-gap: 2%;
+    overflow: auto; 
+    max-height: 83vh;
+    overflow-y: scroll;
+}
+
+.card {
+    display: grid;
+    grid-template-columns: 24% 76%;
+    margin: 2%;
+    border: 1px solid #ccc;
+    box-shadow: 0 8px 32px 0 rgb(13 16 68 / 37%);
+}
+
+.date {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #454845;
+    color: wheat;
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 5%;
+}
+
+form {
+    display: grid;
+    margin: 5%;
+}
+
+.joinButton{
+    grid-area: joinButton;
+}
